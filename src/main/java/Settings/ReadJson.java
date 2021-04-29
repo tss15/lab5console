@@ -21,8 +21,8 @@ public class ReadJson{
 
     public void jsonRead(HashMap<Integer,LabWork> labWorkHashMap){
         try{
-            File file = new File(System.getenv("file"));
-            FileReader fileReader = new FileReader(file + "file.json");
+            File file = new File(System.getenv("IN_PATH"));
+            FileReader fileReader = new FileReader(file );
             Object obj = jsonP.parse(fileReader);
             JSONArray lblist= (JSONArray) obj;
             lblist.forEach(lb -> parsA((JSONObject)lb,labWorkHashMap));
@@ -33,7 +33,7 @@ public class ReadJson{
     private void parsA(JSONObject lbw, HashMap<Integer,LabWork> labWorkHashMap){
 
         JSONObject lbwObj = (JSONObject) lbw.get("LabWorks");
-        String keyy = (String) lbwObj.get("key");99
+        String keyy = (String) lbwObj.get("key");
         String name = (String) lbwObj.get("name");
         String xx = (String) lbwObj.get("x");
         String yy = (String) lbwObj.get("y");
